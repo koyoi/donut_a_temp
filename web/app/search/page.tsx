@@ -6,7 +6,8 @@ const sb = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_
 
 export default function SearchPage(){
   const [q, setQ] = useState('')
-  const [res, setRes] = useState<any[]>([])
+  type Event = { id: number; title: string; description?: string }
+  const [res, setRes] = useState<Event[]>([])
   async function run(){
     const { data } = await sb.from('event')
       .select('id,title,description').ilike('title', `%${q}%`).limit(20)
