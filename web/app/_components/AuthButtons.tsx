@@ -12,10 +12,10 @@ export function AuthButtons() {
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
 
-  async function signIn() {
-    const { error } = await supabase.auth.signInWithOtp({ email })
-    if (!error) setSent(true)
-  }
+  const { error } = await supabase.auth.signInWithOtp({
+    email,
+    options: { emailRedirectTo: redirectTo }
+    })
 
   async function signOut() {
     await supabase.auth.signOut()
