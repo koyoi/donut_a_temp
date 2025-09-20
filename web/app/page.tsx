@@ -14,7 +14,7 @@ export default async function Home() {
 
   return (
     <main className="mx-auto max-w-2xl p-6">
-      <h1 className="text-2xl font-bold mb-4">その後どうなった？（MVP）a</h1>
+      <h1 className="text-2xl font-bold mb-4">その後どうなった？（MVP）b</h1>
       <ul className="space-y-3">
         {(data || []).map((u, i) => (
           <li key={i} className="border rounded-lg p-3">
